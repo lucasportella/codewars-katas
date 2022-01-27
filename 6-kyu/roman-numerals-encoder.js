@@ -2,8 +2,8 @@ function solution(number){
     let result = ''
     const blocks = []
     let number_rest = number
-    const arabicNumerals = [1000, 500, 100, 50, 10, 5, 1]
-    const romanNumerals = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
+    const arabicNumerals = [1000,900, 500, 400, 100, 90, 50,40, 10,9, 5,4, 1]
+    const romanNumerals = ['M','CM', 'D','CD', 'C','XC', 'L','XL', 'X','IX','V', 'IV','I']
 
     for (let numeral in arabicNumerals) {   
         if (number_rest >= arabicNumerals[numeral]) {
@@ -19,18 +19,5 @@ function solution(number){
         result += romanNumerals[numeral].repeat(blocks[numeral])
     }
 
-    let formatted_result = result
-
-    for (let roman in result) {
-        counter = ''
-        
-    }
     return result
   }
-
-  console.log(solution(35));
-
-// 2044
-// 2000
-// 40
-// 1111 --> 
