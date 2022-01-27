@@ -6,11 +6,10 @@ function solution(number){
     const romanNumerals = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
 
     for (let numeral in arabicNumerals) {   
-        if (number_rest > arabicNumerals[numeral]) {
+        if (number_rest >= arabicNumerals[numeral]) {
             division_result = parseInt(number_rest / arabicNumerals[numeral])
             blocks.push(division_result)
             number_rest = number_rest % arabicNumerals[numeral]
-            console.log(number_rest)
         }
         else {
             blocks.push(0)
