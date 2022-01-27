@@ -1,27 +1,35 @@
 function solution(number){
-    result = ''
-    number_rest = number
-    romanNumerals = [
-        {1000: 'M'},
-        {500: 'D'},
-        {100: 'C'},
-        {50: 'L'},
-        {10: 'X'},
-        {5: 'V'},
-        {1: 'I'},
-    ]
-    for (let numeral in romanNumerals) {
-        roman = Number(Object.entries(romanNumerals[numeral])[0][1])
-        arabic = Object.entries(romanNumerals[numeral])[0][0]
-        if (number_rest > arabic) {
-            division_result = parseInt(number_rest / arabic)
-            number_rest = number % arabic
-            console.log(division_result)
+    let result = ''
+    const blocks = []
+    let number_rest = number
+    const arabicNumerals = [1000, 500, 100, 50, 10, 5, 1]
+    const romanNumerals = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
+
+    for (let numeral in arabicNumerals) {   
+        if (number_rest > arabicNumerals[numeral]) {
+            division_result = parseInt(number_rest / arabicNumerals[numeral])
+            blocks.push(division_result)
+            number_rest = number_rest % arabicNumerals[numeral]
+            console.log(number_rest)
+        }
+        else {
+            blocks.push(0)
         }
     }
+    for (let numeral in blocks) {
+        result += romanNumerals[numeral].repeat(blocks[numeral])
+    }
+
+    let formatted_result = result
+
+    for (let roman in result) {
+        counter = ''
+        
+    }
+    return result
   }
 
-  solution(2044)
+  console.log(solution(35));
 
 // 2044
 // 2000
