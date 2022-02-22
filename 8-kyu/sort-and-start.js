@@ -1,8 +1,8 @@
 function twoSort(array) {
-    const star = array.sort()[0]
-    return star.split('').join('***')
+  const star = array.sort()[0];
+  return star.split('').join('***');
 }
 
-testArray = ["bitcoin", "take", "over", "the", "world", "maybe", "who", "knows", "perhaps"]
+const testArray = ['bitcoin', 'take', 'over', 'the', 'world', 'maybe', 'who', 'knows', 'perhaps'];
 
-console.log(twoSort(testArray));
+twoSort(testArray); // returns b***i***t***c***o***i***n

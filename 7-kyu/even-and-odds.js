@@ -7,3 +7,6 @@ function evensAndOdds(num) {
 
 // clever
 // const evensAndOdds = n => n.toString(n%2 ? 16 : 2);
+
+evensAndOdds(31); // returns 1f
+evensAndOdds(30); // returns 11110

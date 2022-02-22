@@ -17,4 +17,4 @@ function getCount(str) {
   return vowelsCount;
 }
 
-console.log(getCount('abcdefgh'));
+getCount('abcdefgh'); // returns 2

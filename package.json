@@ -93,11 +93,11 @@
     "type": "git",
     "url": "git+https://github.com/lucasportella/codewars-katas.git"
   },
-  "author": "",
+  "author": "Lucas Portella",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lucasportella/codewars-katas/issues"
   },
   "homepage": "https://github.com/lucasportella/codewars-katas#readme",
-  "description": ""
+  "description": "my codewars katas"
 }

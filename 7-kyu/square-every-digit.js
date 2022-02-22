@@ -6,5 +6,4 @@ function squareDigits(num) {
   return Number(result);
 }
 
-console.log(squareDigits(9119));
-// 811181
+squareDigits(9119); // returns 811181
