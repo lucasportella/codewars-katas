@@ -1,27 +1,26 @@
-function descendingOrder(text){
+function countingDuplicates(text) {
   const noRepeat = [];
   const repeat = [];
   const inputArray = text.toLowerCase().split('');
 
-  inputArray.map((letter) => {
+  inputArray.forEach((letter) => {
     if (!noRepeat.some((noRepeatLetter) => letter === noRepeatLetter)) {
-      noRepeat.push(letter)
+      noRepeat.push(letter);
     }
-  })
+  });
 
-  noRepeat.map((noRepeatLetter) => {
+  noRepeat.forEach((noRepeatLetter) => {
     let counter = 0;
-    inputArray.map((letter) => {
+    inputArray.forEach((letter) => {
       if (letter === noRepeatLetter) {
         counter += 1;
       }
       if (counter === 2 && !repeat.some((el) => el === noRepeatLetter)) {
         repeat.push(noRepeatLetter);
       }
-    })
-  })
+    });
+  });
   return repeat.length;
 }
 
-const a = descendingOrder('Indivisibilities');
-console.log((a))
+countingDuplicates('Indivisibilities'); // returns 2

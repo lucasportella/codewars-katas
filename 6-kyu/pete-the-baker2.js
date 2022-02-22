@@ -53,5 +53,5 @@ getMissingIngredients({ flour: 200, eggs: 1, sugar: 100 }, addedInput3);
 getMissingIngredients({ eggs: 1, sugar: 100 }, addedInput2);
 getMissingIngredients({
   carrot: 5, flour: 2000, eggs: 1, sugar: 100,
-}, addedInput4); // returns { carrot: 15, flour: 5800, sugar: 200 } 
+}, addedInput4); // returns { carrot: 15, flour: 5800, sugar: 200 }
 // --> 3 cakes because input uses 3 eggs
