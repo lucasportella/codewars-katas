@@ -2,6 +2,7 @@
 // return the array elements arranged from outermost elements to the middle element,
 // traveling clockwise.
 
+// my solution:
 const snail = (array) => {
   const result = [];
   let top = 0;
@@ -54,3 +55,38 @@ snail(arr0);
 snail(arr1);
 snail(arr2);
 snail(arr3);
+
+// ADDITIONAL COMMENTS:
+// best performance way:
+// arr.shift removes first element of an array, which, in this case is an entire
+// array, the top square of the matrix can be removed with a O(1) operation
+const snail2 = (arr) => {
+  let Res = [];
+  Res = Res.concat(arr.shift()); // peels top row
+  /* eslint-disable no-console */
+  console.log(Res);
+  console.log(arr);
+};
+
+snail2(arr3);
+
+// champion solution:
+const snail3 = (array) => {
+  let result;
+  while (array.length) {
+    // Steal the first row.
+    result = (result ? result.concat(array.shift()) : array.shift());
+    // Steal the right items.
+    for (let i = 0; i < array.length; i += 1) { result.push(array[i].pop()); }
+    // Steal the bottom row.
+    result = result.concat((array.pop() || []).reverse());
+    // Steal the left items.
+    for (let i = array.length - 1; i >= 0; i -= 1) { result.push(array[i].shift()); }
+  }
+  console.log(result);
+  return result;
+};
+
+snail3(arr0);
+
+console.log([].pop()); // returns undefined
