@@ -42,19 +42,43 @@
 //     testing([15,21,24,30,45], [ [2, 54], [3, 135], [5, 90], [7, 21] ]);
 // })})
 
-function sumOfDivided(lst) {
-  // your code
-  return [[2, 12]];
+function sumOfDivided(array) {
+  const result = {};
+
+  const isPrime = (n) => {
+    let num = n;
+    if (num < 0) { num *= -1; }
+    // num must be positive natural number
+    if (num === 2) { return true; }
+    if (num === 1 || num % 2 === 0) { return false; }
+    for (let i = 3; i < num; i += 2) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  // loop through the array given by the test:
+  // find prime numbers that can divide array nums:
+  array.forEach((num) => {
+    if (num % 2 === 0) {
+      if (result[2]) {
+        result[2] += num;
+      } else { result[2] = 2; }
+    }
+    for (let i = 3; i < num; i += 2) {
+      if (num % i === 0 && isPrime(i)) {
+        if (result[i]) {
+          result[i] += num;
+        } else {
+          result[i] = i;
+        }
+      }
+    }
+  });
+
+  return Object.entries(result);
 }
 
-const isPrime = (n) => {
-  // n must be positive natural number
-  if (n === 2) { return true; }
-  if (n === 1 || n % 2 === 0) { return false; }
-  for (let i = 3; i < n; i += 2) {
-    if (n % i === 0) {
-      return false;
-    }
-  }
-  return true;
-};
+console.log(sumOfDivided([15, 21, 24, 30, 45]));
