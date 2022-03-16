@@ -81,7 +81,11 @@ function sumOfDivided(array) {
       }
     }
     if (isPrime(num)) {
-      result[num] = negativeFlag ? num * -1 : num;
+      if (result[num]) {
+        result[num] += negativeFlag ? num * -1 : num;
+      } else {
+        result[num] = negativeFlag ? num * -1 : num;
+      }
     }
   });
 
