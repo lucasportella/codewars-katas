@@ -65,20 +65,21 @@ function sumOfDivided(array) {
     if (num % 2 === 0) {
       if (result[2]) {
         result[2] += num;
-      } else { result[2] = 2; }
+      } else { result[2] = num; }
     }
     for (let i = 3; i < num; i += 2) {
       if (num % i === 0 && isPrime(i)) {
         if (result[i]) {
           result[i] += num;
         } else {
-          result[i] = i;
+          result[i] = num;
         }
       }
     }
   });
 
-  return Object.entries(result);
+  const parsedResult = Object.entries(result).map((arr) => [Number(arr[0]), arr[1]]);
+  return parsedResult;
 }
 
-console.log(sumOfDivided([15, 21, 24, 30, 45]));
+console.log(sumOfDivided([15, 1]));
