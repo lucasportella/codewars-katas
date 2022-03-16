@@ -45,9 +45,7 @@
 function sumOfDivided(array) {
   const result = {};
 
-  const isPrime = (n) => {
-    let num = n;
-    if (num < 0) { num *= -1; }
+  const isPrime = (num) => {
     // num must be positive natural number
     if (num === 2) { return true; }
     if (num === 1 || num % 2 === 0) { return false; }
@@ -61,20 +59,29 @@ function sumOfDivided(array) {
 
   // loop through the array given by the test:
   // find prime numbers that can divide array nums:
-  array.forEach((num) => {
+  array.forEach((number) => {
+    let num = number;
+    let negativeFlag = false;
+    if (num < 0) {
+      num *= -1;
+      negativeFlag = true;
+    }
     if (num % 2 === 0) {
       if (result[2]) {
-        result[2] += num;
-      } else { result[2] = num; }
+        result[2] += negativeFlag ? num * -1 : num;
+      } else { result[2] = negativeFlag ? num * -1 : num; }
     }
     for (let i = 3; i < num; i += 2) {
       if (num % i === 0 && isPrime(i)) {
         if (result[i]) {
-          result[i] += num;
+          result[i] += negativeFlag ? num * -1 : num;
         } else {
-          result[i] = num;
+          result[i] = negativeFlag ? num * -1 : num;
         }
       }
+    }
+    if (isPrime(num)) {
+      result[num] = negativeFlag ? num * -1 : num;
     }
   });
 
@@ -82,4 +89,54 @@ function sumOfDivided(array) {
   return parsedResult;
 }
 
-console.log(sumOfDivided([15, 1]));
+// console.log(sumOfDivided([84,
+//   -43,
+//   -34,
+//   97,
+//   -80,
+//   -24,
+//   150,
+//   -77,
+//   115,
+//   -23,
+//   190,
+//   88,
+//   95,
+//   -49,
+//   -18,
+//   111,
+//   130,
+//   24,
+//   85,
+//   166,
+//   2,
+//   39,
+//   26]));
+
+// console.log(sumOfDivided([17, -17, 51, -51]));
+
+// console.log(sumOfDivided([15,
+//   -78,
+//   190,
+//   -92,
+//   -43,
+//   -85,
+//   80,
+//   89,
+//   40,
+//   114,
+//   23,
+//   158,
+//   70,
+//   100,
+//   125,
+//   88,
+//   97,
+//   76,
+//   168,
+//   47,
+//   -90,
+//   190,
+//   171]));
+
+console.log(sumOfDivided([17, -17, 51, -51]));
