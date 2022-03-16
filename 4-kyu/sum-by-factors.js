@@ -80,7 +80,7 @@ function sumOfDivided(array) {
         }
       }
     }
-    if (isPrime(num)) {
+    if (isPrime(num) && num !== 2) {
       if (result[num]) {
         result[num] += negativeFlag ? num * -1 : num;
       } else {
@@ -117,7 +117,7 @@ function sumOfDivided(array) {
 //   39,
 //   26]));
 
-// console.log(sumOfDivided([17, -17, 51, -51]));
+console.log(sumOfDivided([17, -17, 51, -51]));
 
 // console.log(sumOfDivided([15,
 //   -78,
@@ -142,5 +142,3 @@ function sumOfDivided(array) {
 //   -90,
 //   190,
 //   171]));
-
-console.log(sumOfDivided([17, -17, 51, -51]));
